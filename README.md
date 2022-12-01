@@ -1,8 +1,8 @@
 # parallax
 
-<h3>Parallax Tutorial<h3>
+<h2>Parallax Tutorial<h2>
   <ul>
     <li>
-      <a href="ciellapluie.github.io/parallax_basic/parallax01.html"><p>패럴럭스 배우기 - 기본</p></a>
+      <a href="https://ciellapluie.github.io/parallax_basic/parallax01.html">패럴럭스 배우기 - 기본</a>
     </li>
   </ul>
