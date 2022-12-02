@@ -19,7 +19,7 @@
   <nav id="nav">
     <h1>WEB'S</h1> 
     <ul>
-      <li><a href="#">menu1</a></li>
+      <li class="active"><a href="#">menu1</a></li>
       <li><a href="#">menu2</a></li>
       <li><a href="#">menu3</a></li>
       <li><a href="#">menu4</a></li>
@@ -56,6 +56,36 @@
 
       $("html, body").animate({scrollTop: offset}, 600, "easeInOutExpo");
 
+    });
+
+    // scroll 이벤트 함수
+    $(window).scroll(function(){ // 브라우저에 스크롤이 되었을 때 동작
+      let wScroll = $(this).scrollTop();
+      
+      if(wScroll >= cont.eq(0).offset().top){
+        nav.removeClass("active");
+        nav.eq(0).addClass("active");
+      }
+      if(wScroll >= cont.eq(1).offset().top){
+        nav.removeClass("active");
+        nav.eq(1).addClass("active");
+      }
+      if(wScroll >= cont.eq(2).offset().top){
+        nav.removeClass("active");
+        nav.eq(2).addClass("active");
+      }
+      if(wScroll >= cont.eq(3).offset().top){
+        nav.removeClass("active");
+        nav.eq(3).addClass("active");
+      }
+      if(wScroll >= cont.eq(4).offset().top){
+        nav.removeClass("active");
+        nav.eq(4).addClass("active");
+      }
+      if(wScroll >= cont.eq(5).offset().top){
+        nav.removeClass("active");
+        nav.eq(5).addClass("active");
+      }
     });
 
   </script>

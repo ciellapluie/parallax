@@ -28,6 +28,9 @@
   font-family: 'Abel', sans-serif;
   text-transform: capitalize;
 }
+#nav ul li.active a {
+  color: #000;
+}
 
 /* contents */
 #contents {
