@@ -36,10 +36,10 @@
 #contents {
   text-align: center;
   color: #fff;
-  line-height: 100vh;
 }
 #contents > div {
   height: 100vh;
+  line-height: 100vh;
 }
 #contents > div h2 {
   font-size: 90px;
