@@ -48,5 +48,31 @@
     <script src="./asset/js/jquery-3.6.1.min.js"></script>
     <script src="./asset/js/jquery-ui.min.js"></script>
   
+    <script>
+      const nav = $("#nav ul li");
+      const cont = $("#contents > div");
+
+      nav.on('click', function(e){
+        e.preventDefault();
+        
+        const index = $(this).index();
+        const section = cont.eq(index);
+        const offset = section.offset().top;
+
+        $("html, body").animate({scrollTop: offset}, 600, "easeInOutExpo");
+      });
+
+      $(window).scroll(function(){
+        const wScroll = $(this).scrollTop();
+
+        for(var i = 0; i <= nav.length; i++) {
+          if(wScroll >= cont.eq(i).offset().top) {
+            nav.removeClass("active");
+            nav.eq(i).addClass("active");
+          }
+        }
+      });
+    </script>
+
 </body>
 </html>
