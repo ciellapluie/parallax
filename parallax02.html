@@ -60,8 +60,16 @@
 
     // scroll 이벤트 함수
     $(window).scroll(function(){ // 브라우저에 스크롤이 되었을 때 동작
-      let wScroll = $(this).scrollTop();
       
+      let wScroll = $(this).scrollTop();
+
+      for(var i = 0; i <= nav.length; i++) {
+        if(wScroll >= cont.eq(i).offset().top) {
+          nav.removeClass("active");
+          nav.eq(i).addClass("active");
+        }
+      }
+/*
       if(wScroll >= cont.eq(0).offset().top){
         nav.removeClass("active");
         nav.eq(0).addClass("active");
@@ -86,6 +94,7 @@
         nav.removeClass("active");
         nav.eq(5).addClass("active");
       }
+*/
     });
 
   </script>
