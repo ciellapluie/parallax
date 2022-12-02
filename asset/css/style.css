@@ -31,6 +31,41 @@
 #nav ul li.active a {
   color: #000;
 }
+#nav .mNav {
+  display: none;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 65px;
+  height: 45px;
+  cursor: pointer;
+}
+
+/* icon menu */
+.icon_wrap {padding-left: 10px;}
+.icon_wrap .icon {
+  position: relative;
+  margin-top: 20px;
+}
+.icon_wrap .icon:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+}
+.icon_wrap .icon:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+.icon_wrap .icon,
+.icon_wrap .icon:before,
+.icon_wrap .icon:after {
+  width: 45px;
+  height: 4px;
+  background: #fff;
+}
 
 /* contents */
 #contents {
