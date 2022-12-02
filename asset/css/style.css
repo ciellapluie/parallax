@@ -77,9 +77,9 @@
   line-height: 100vh;
 }
 #contents > div h2 {
-  font-size: 90px;
-  font-weight: 100;
-  text-decoration: uppercase;
+  font-size: 6vw;
+  font-weight: 200;
+  text-transform: uppercase;
 }
 #contents > div h2 strong {
   font-weight: 700;
@@ -104,4 +104,27 @@
 }
 #section6 {
   background: radial-gradient(ellipse farthest-corner at center top, #6cebcf 0%, #38a7aa 100%);
+}
+
+@media (max-width: 800px) {
+  #nav .mNav {
+    display: block;
+  }
+  #nav .menu {
+    display: none;
+    float: none;
+    text-align: center;
+    padding-right: 0;
+  }
+  #nav h1 {
+    width: 100%;
+  }
+  #nav .menu li {
+    display: inline-block;
+    width: 100%;
+  }
+  #nav .menu li.active {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
 }

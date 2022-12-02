@@ -55,6 +55,8 @@
       nav.on('click', function(e){
         e.preventDefault();
         
+        const target = $(this);
+        // const index = target.index();
         const index = $(this).index();
         const section = cont.eq(index);
         const offset = section.offset().top;
@@ -70,6 +72,24 @@
             nav.removeClass("active");
             nav.eq(i).addClass("active");
           }
+        }
+      });
+
+      $(".mNav").on('click', function(e){
+        //$(".menu").css("display", "block");
+        //$(".menu").show();
+        // $(".menu").fadeIn();
+        // $(".menu").slideDown();
+        $(".menu").toggle({direction: "down"}, 100);
+        // $(".menu").fadeToggle();
+        // $(".menu").slideToggle();
+      });
+
+      $(window).resize(function(){
+        const wWidth = $(window).width();
+        // 화면 크기가 800 이상일 때 style="display:none;" 삭제
+        if(wWidth >= 800 && $(".menu").is(":hidden")) {
+          $(".menu").removeAttr("style");
         }
       });
     </script>
