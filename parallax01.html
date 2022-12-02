@@ -19,12 +19,12 @@
   <nav id="nav">
     <h1>WEB'S</h1>
     <ul>
-      <li><a href="#">menu1</a></li>
-      <li><a href="#">menu2</a></li>
-      <li><a href="#">menu3</a></li>
-      <li><a href="#">menu4</a></li>
-      <li><a href="#">menu5</a></li>
-      <li><a href="#">menu6</a></li>
+      <li><a href="#section1">menu1</a></li>
+      <li><a href="#section2">menu2</a></li>
+      <li><a href="#section3">menu3</a></li>
+      <li><a href="#section4">menu4</a></li>
+      <li><a href="#section5">menu5</a></li>
+      <li><a href="#section6">menu6</a></li>
     </ul>
   </nav>
 
@@ -36,6 +36,39 @@
     <div id="section5"><h2><strong>Habit</strong> is second nature</h2></div>
     <div id="section6"><h2>Pain past is <strong>pleasure</strong></h2></div>
   </div>
+
+  <!-- script -->
+  <script src="./asset/js/jquery-3.6.1.min.js"></script>
+  <script src="./asset/js/jquery-ui.min.js"></script>
+
+  <script>
+    
+    const nav = $("#nav ul li"); // 버튼을 변수에 할당(저장)
+    const cont = $("#contents > div"); // 컨텐츠를 변수에 할당
+
+    // 버튼을 클릭 시
+    nav.on("click", function(e){
+      e.preventDefault();
+
+      let taget = $(this); // 클릭한 타겟을 변수에 할당
+      let index = $(this).index(); // 클릭한 타겟에 인덱스 번호를 할당
+
+      let section = cont.eq(index); // 클릭한 버튼과 같은 인덱스를 가진 컨텐츠를 연결
+      // eq() : 선택한 요소의 인덱스 번호에 해당하는 요소를 찾음
+      let offset = section.offset().top; // 각 컨텐츠의 offset 값을 할당
+      // offset() : 선택한 요소의 위치 좌표값(문서 기준)을 설정하거나 반환
+      
+      $("#contents > div h2").hide();
+      
+      // 스크롤에 offset 값을 설정하고 애니메이션 효과를 주어서 부드럽게 설정한 위치로 이동, 0.6초
+      $("html, body").animate({scrollTop: offset}, 600, "easeInOutExpo", function(){
+        $("#contents > div h2").show("slide", {direction: "right"}, 400, function(){
+          $("body").css("overflow-x", "hidden");
+        });
+      }); 
+    });
+
+  </script>
 
 </body>
 </html>

@@ -23,6 +23,7 @@
 #nav ul li a {
   display: inline-block;
   padding: 20px 15px;
+  color: #fff;
   font-weight: bold;
   font-family: 'Abel', sans-serif;
   text-transform: capitalize;
