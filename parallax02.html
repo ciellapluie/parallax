@@ -50,7 +50,11 @@
       e.preventDefault();
 
       let index = $(this).index();
-      alert(index);
+      // alert(index);
+      let section = cont.eq(index);
+      let offset = section.offset().top;
+
+      $("html, body").animate({scrollTop: offset}, 600, "easeInOutExpo");
 
     });
 
