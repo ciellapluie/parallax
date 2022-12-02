@@ -42,7 +42,18 @@
   <script src="./asset/js/jquery-ui.min.js"></script>
 
   <script>
-    
+
+    const nav = $("#nav ul li");
+    const cont = $("#contents > div");
+
+    nav.on('click', function(e){
+      e.preventDefault();
+
+      let index = $(this).index();
+      arert(index);
+
+    });
+
   </script>
 
 </body>
