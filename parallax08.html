@@ -5,8 +5,182 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>parallax</title>
+
+  <!-- 웹 폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+  <!-- style -->
+  <style>
+    /* reset */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+    }
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    /* nav */
+    #nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 62px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    #nav h1 {
+      float: left;
+      font-size: 40px;
+      font-family: 'abel', sans-serif;
+      padding: 5px 5px 5px 15px;
+      color: #fff;
+    }
+
+    /* dot */
+    #dot {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+    #dot ul li a {
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      display: block;
+      margin: 8px;
+      border-radius: 50%;
+    }
+    #dot ul li a em {
+      display: none;
+    }
+    #dot ul li.active a {
+      background: rgba(255, 255, 255, 1);
+    }
+
+    /* contents */
+    #contents {
+      text-align: center;
+      color: #fff;
+    }
+    #contents > div {
+      height: 100vh;
+      line-height: 100vh;
+    }
+    #contents > div h2 {
+      font-size: 5vw;
+      font-weight: 200;
+    }
+    #contents > div h2 strong {
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    /* section */
+    .section1 {
+      background: radial-gradient(ellipse farthest-corner at center top, #a3a1ff, #3a3897);
+    }
+    .section2 {
+      background: radial-gradient(ellipse farthest-corner at center bottom, #3aa17e, #00537e);
+    }
+    .section3 {
+      background: radial-gradient(ellipse farthest-corner at center top, #29abe2, #4f00bc);
+    }
+    .section4 {
+      background: radial-gradient(ellipse farthest-corner at center top, #ff5300, #45145a);
+    }
+    .section5 {
+      background: radial-gradient(ellipse farthest-corner at center bottom, #862d91, #312a6c);
+    }
+    .section6 {
+      background: radial-gradient(ellipse farthest-corner at center top, #fbb03b, #d4145a);
+    }
+  </style>
 </head>
 <body>
   
+  <nav id="nav">
+    <h1>WEB'S</h1>
+  </nav>
+  <!-- //nav -->
+  
+  <div id="dot">
+    <ul>
+      <li class="active"><a href="#"><em>menu1</em></a></li>
+      <li><a href="#"><em>menu2</em></a></li>
+      <li><a href="#"><em>menu3</em></a></li>
+      <li><a href="#"><em>menu4</em></a></li>
+      <li><a href="#"><em>menu5</em></a></li>
+      <li><a href="#"><em>menu6</em></a></li>
+    </ul>
+  </div>
+  <!-- //dot -->
+
+  <div id="contents">
+    <div class="section1"><h2>언어의 한계가 곧 <strong>자기 세계의 한계다.</strong></h2></div>
+    <div class="section2"><h2><strong>교육은</strong> 최상의 노후 대비책이다.</h2></div>
+    <div class="section3"><h2>계획 없는 목표는 한낱 <strong>꿈에 불과하다.</strong></h2></div>
+    <div class="section4"><h2>용기란 공포를 1분 더 <strong>참는 것이다.</strong></h2></div>
+    <div class="section5"><h2><strong>욕망을</strong> 이성의 지배 하에 두어라.</h2></div>
+    <div class="section6"><h2>교육의 위대한 목표는 앎이 아니라 <strong>행동이다.</strong></h2></div>
+  </div>
+  <!-- //contents -->
+
+  <!-- script -->
+  <script src="./asset/js/jquery-3.6.1.min.js"></script>
+  <script src="./asset/js/jquery-ui.min.js"></script>
+
+  <script>
+    const dot = $("#dot ul li");
+    const cont = $("#contents > div");
+
+    dot.on("click", function(e){
+      e.preventDefault();
+
+      const index = $(this).index();
+      const section = cont.eq(index);
+      const offset = section.offset().top;
+
+      $("html, body").animate({scrollTop:offset}, 600, "easeInOutExpo");
+    });
+
+    $(window).scroll(function(){
+      const wScroll = $(this).scrollTop();
+
+      if(wScroll >= cont.eq(0).offset().top) {
+        dot.removeClass("active");
+        dot.eq(0).addClass("active");
+      }
+      if(wScroll >= cont.eq(1).offset().top) {
+        dot.removeClass("active");
+        dot.eq(1).addClass("active");
+      }
+      if(wScroll >= cont.eq(2).offset().top) {
+        dot.removeClass("active");
+        dot.eq(2).addClass("active");
+      }
+      if(wScroll >= cont.eq(3).offset().top) {
+        dot.removeClass("active");
+        dot.eq(3).addClass("active");
+      }
+      if(wScroll >= cont.eq(4).offset().top) {
+        dot.removeClass("active");
+        dot.eq(4).addClass("active");
+      }
+      if(wScroll >= cont.eq(5).offset().top) {
+        dot.removeClass("active");
+        dot.eq(5).addClass("active");
+      }
+    });
+  </script>
+
 </body>
 </html>
